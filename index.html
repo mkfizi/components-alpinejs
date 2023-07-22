@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en"
+    x-data="{ 
+        theme: localStorage.theme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'), 
+        viewportHeight: (window.innerHeight * 0.01) + 'px'
+    }"
+    :class="theme == 'dark' ? 'dark' : ''"
+    :style="{ '--vh': viewportHeight}"
+    @resize.window="viewportHeight = (window.innerHeight * 0.01) + 'px'"
+>
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="robots" content="noindex">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./src/css/app.css">
+    <link rel="preload" href="./src/css/app.css" as="style">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="./src/js/app.js" defer></script>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" as="script">
+    <link rel="preload" href="./src/js/app.js" as="script">
+
+    <title>Components</title>
+</head>
+<body class="relative min-h-screen antialiased bg-white dark:bg-neutral-900">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="sticky top-0 z-10 w-full h-16 bg-white border-b border-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
+        <div class="flex items-center justify-end w-full h-full max-w-screen-md px-4 mx-auto sm:px-8">
+            <div class="flex gap-4">
+                <!-- Dark mode toggle button -->
+                <button type="button" aria-label="Toggle dark mode" 
+                    x-data="{ isDarkMode: '' }"
+                    @click="
+                        isDarkMode = localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches);
+                        localStorage.theme = isDarkMode ? 'dark' : 'light';
+                        document.documentElement.classList.toggle('dark', isDarkMode);
+                    "
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 dark:hidden stroke-neutral-600 group-hover:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                        <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6 dark:block dark:stroke-neutral-400 group-hover:stroke-white" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                    </svg>
+                </button>
+
+                <!-- Github -->
+                <a href="https://github.com/mkfizi/components-alpine" target="_blank" class="group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="w-full max-w-screen-md px-4 pt-16 pb-24 mx-auto lg:pb-20 sm:px-8">
+        <div class="w-full space-y-16">
+            <p class="text-2xl font-black text-black sm:text-3xl lg:text-4xl dark:text-white">Components</p>
+            <div class="space-y-8">
+
+                <!-- Alert -->
+                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Alert</p>
+                    <div class="col-span-2 sm:col-span-3">
+                        <div id="alert" class="flex items-center gap-4 p-4 rounded-md bg-neutral-200 dark:bg-neutral-700" aria-hidden="false"
+                            x-data="{ isClose: false }"
+                            :class="{'hidden invisible': isClose}"
+                            :aria-hidden="isClose ? true : false" 
+                        >
+                            <div class="grow">
+                                <span class="text-base text-neutral-700 dark:text-neutral-300">This is an alert text.</span>
+                            </div>
+                            <button type="button" class="shrink-0 group" aria-controls="alert" aria-label="Close alert"
+                                @click="isClose = true"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M18 6l-12 12" />
+                                    <path d="M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>  
+
+                <!-- Collapse -->
+                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Collapse</p>
+                    <div class="col-span-2 space-y-8 sm:col-span-3">
+                        <div class="space-y-4">
+                            <p class="text-base font-bold text-black sm:text-lg lg:text-xl dark:text-white">Regular collapse</p> 
+                            <div class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
+                                x-data="{
+                                    collapse: {
+                                        'isActive-1': true,
+                                        'isActive-2': false,
+                                        'isActive-3': false,
+                                    }
+                                }"
+                            >
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-expanded="true" aria-controls="collapse-1" aria-label="Toggle collapse 1"
+                                    :aria-expanded="collapse['isActive-1'] ? true : false" 
+                                    @click="collapse['isActive-1'] = !collapse['isActive-1']"
+                                >
+                                    <div class="text-left grow">
+                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 1</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1"
+                                        :class="{'rotate-180': collapse['isActive-1']}"
+                                    >
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 9l6 6l6 -6" />
+                                    </svg>
+                                </button>
+                                <div id="collapse-1" class="p-4" aria-hidden="false"
+                                    :class="{'hidden invisible': !collapse['isActive-1']}"
+                                    :aria-hidden="collapse['isActive-1'] ? false : true" 
+                                >
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 1 sentence.</p>
+                                </div>
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-expanded="false" aria-controls="collapse-2" aria-label="Toggle collapse 2"
+                                    :aria-expanded="collapse['isActive-2'] ? true : false" 
+                                    @click="collapse['isActive-2'] = !collapse['isActive-2']"
+                                >
+                                    <div class="text-left grow">
+                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 2</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1"
+                                        :class="{'rotate-180': collapse['isActive-2']}"
+                                    >
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 9l6 6l6 -6" />
+                                    </svg>
+                                </button>
+                                <div id="collapse-2" class="invisible hidden p-4" aria-hidden="true"
+                                :class="{'hidden invisible': !collapse['isActive-2']}"
+                                    :aria-hidden="collapse['isActive-2'] ? false : true" 
+                                >
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 2 sentence.</p>
+                                </div>
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-expanded="false" aria-controls="collapse-3" aria-label="Toggle collapse 3"
+                                    :aria-expanded="collapse['isActive-3'] ? true : false" 
+                                    @click="collapse['isActive-3'] = !collapse['isActive-3']"
+                                >
+                                    <div class="text-left grow">
+                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 3</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1"
+                                        :class="{'rotate-180': collapse['isActive-3']}"
+                                    >
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 9l6 6l6 -6" />
+                                    </svg>
+                                </button>
+                                <div id="collapse-3" class="invisible hidden p-4" aria-hidden="true"
+                                :class="{'hidden invisible': !collapse['isActive-3']}"
+                                    :aria-hidden="collapse['isActive-3'] ? false : true" 
+                                >
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 3 sentence.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-base font-bold text-black sm:text-lg lg:text-xl dark:text-white">Accordion collapse</p>
+                            <div id="accordion" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
+                                x-data="{ currentActive: 'accordion-1' }"
+                            >
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-expanded="true" aria-controls="accordion-1" aria-label="Toggle accordion 1"
+                                    :aria-expanded="currentActive == 'accordion-1' ? true : false" 
+                                    @click="currentActive = 'accordion-1'"
+                                >
+                                    <div class="text-left grow">
+                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 1</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-1"
+                                        :class="{ 'rotate-180': currentActive == 'accordion-1' }"
+                                    >
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 9l6 6l6 -6" />
+                                    </svg>
+                                </button>
+                                <div id="accordion-1" class="p-4" aria-hidden="false" aria-labelledby="accordion"
+                                    :class="{'hidden invisible': currentActive != 'accordion-1'}"
+                                    :aria-hidden="currentActive == 'accordion-1' ? false : true"  
+                                >
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 1 sentence.</p>
+                                </div>
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-expanded="false" aria-controls="accordion-2" aria-label="Toggle accordion 2"
+                                    :aria-expanded="currentActive == 'accordion-2' ? true : false" 
+                                    @click="currentActive = 'accordion-2'"
+                                >
+                                    <div class="text-left grow">
+                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 2</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-2"
+                                        :class="{ 'rotate-180': currentActive == 'accordion-2' }"
+                                    >
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 9l6 6l6 -6" />
+                                    </svg>
+                                </button>
+                                <div id="accordion-2" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="accordion"
+                                    :class="{'hidden invisible': currentActive != 'accordion-2'}"
+                                    :aria-hidden="currentActive == 'accordion-2' ? false : true"  
+                                >
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 2 sentence.</p>
+                                </div>
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-expanded="false" aria-controls="accordion-3" aria-label="Toggle accordion 3"
+                                    :aria-expanded="currentActive == 'accordion-3' ? true : false" 
+                                    @click="currentActive = 'accordion-3'"
+                                >
+                                    <div class="text-left grow">
+                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 3</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-3"
+                                        :class="{ 'rotate-180': currentActive == 'accordion-3' }"
+                                    >
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 9l6 6l6 -6" />
+                                    </svg>
+                                </button>
+                                <div id="accordion-3" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="accordion"
+                                    :class="{'hidden invisible': currentActive != 'accordion-3'}"
+                                    :aria-hidden="currentActive == 'accordion-3' ? false : true"  
+                                >
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 3 sentence.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
+                <!-- Dropdown -->
+                <div class="grid gap-4 mb-2 sm:grid-cols-3 pb-36 lg:grid-cols-4">
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Dropdown</p>
+                    <div class="col-span-2 sm:col-span-3">
+                        <div class="inline-block"
+                            x-data="{ isOpen: false }" 
+                            @click.outside="isOpen = false"
+                            @keydown.escape="isOpen = false"
+                        >
+                            <button type="button" class="flex gap-2 p-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown"
+                                :aria-expanded="isOpen ? true : false"
+                                @click="isOpen = !isOpen"
+                            >
+                                <span>Toggle Dropdown</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="dropdown">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M6 9l6 6l6 -6" />
+                                </svg>
+                            </button>
+                            <div id="dropdown" class="relative invisible hidden" aria-hidden="true"
+                                :class="{ 'hidden invisible': !isOpen }"
+                                :aria-hidden="isOpen ? false : true"
+                            >
+                                <ul class="absolute z-10 w-48 py-2 bg-white border rounded-md top-2 border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 drop-shadow-md" aria-labelledby="dropdown">
+                                    <li class="hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                                        <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 1</a>
+                                    </li>
+                                    <li class="hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                                        <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 2</a>
+                                    </li>
+                                    <li class="hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                                        <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
+                <!-- Modal -->
+                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Modal</p>
+                    <div class="col-span-2 sm:col-span-3">
+                        <div
+                            x-data="{ isOpen: false }" 
+                            @keydown.escape="isOpen = false"
+                        >
+                            <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="modal" aria-expanded="false" aria-label="Open modal"
+                                :aria-expanded="isOpen ? true : false"
+                                @click="isOpen = true"
+                            >Open Modal</button>
+                            <div id="modal" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen bg-neutral-500/50" aria-hidden="true"
+                                :class="{ 'hidden invisible': !isOpen }"
+                            >
+                                <div class="fixed p-8 transform -translate-x-1/2 -translate-y-1/2 bg-white border rounded-md left-1/2 top-1/2 border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 w-80 sm:w-96 drop-shadow-md" aria-labelledby="modal"
+                                    x-show="isOpen"
+                                    x-init="
+                                        $watch('isOpen', isOpen => { 
+                                            focusableElements = Array.from($el.querySelectorAll(`a, button, input, textarea, select, details, [tabindex], [contenteditable='true']`)).filter(element => {
+                                                return !element.closest(`[tabindex='-1'], .hidden, .invisible`) || null;
+                                            });
+                                            firstElement = focusableElements[0];
+                                            lastElement = focusableElements[focusableElements.length - 1];
+                                            focusTrapHandler = event => {
+                                                if (event.type === 'keydown' && event.key === 'Tab') {
+                                                    if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
+                                                        event.preventDefault();
+                                                        lastElement.focus();
+                                                    } else if (!event.shiftKey && document.activeElement === lastElement) {
+                                                        event.preventDefault();
+                                                        firstElement.focus();
+                                                    }
+                                                }
+                                            }
+                                            if (isOpen) {
+                                                $el.setAttribute('tabindex', 1);
+                                                $el.focus();
+                                                setTimeout(() => {
+                                                    $el.removeAttribute('tabindex');
+                                                }, 100);
+                                                window.addEventListener('keydown', focusTrapHandler);
+                                            } else {
+                                                window.removeEventListener('keydown', focusTrapHandler);
+                                            }
+                                        })
+                                    "
+                                    @click.outside="isOpen = false"
+                                >
+                                    <button type="button" class="absolute right-4 top-4 group" aria-controls="modal" aria-expanded="false" aria-label="Close modal"
+                                        :aria-expanded="isOpen ? true : false"
+                                        @click="isOpen = false"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M18 6l-12 12" />
+                                            <path d="M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                    <div class="space-y-4 text-center">
+                                        <p class="text-lg font-bold text-black sm:text-xl lg:text-2xl dark:text-white">Modal Title</p>
+                                        <p class="text-base text-neutral-700 dark:text-neutral-300">This is a modal sentence.</p>
+                                    </div>
+                                    <div class="flex flex-wrap justify-center gap-2 mt-8">
+                                        <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none">Okay</button>
+                                        <button type="button" class="px-8 py-2 text-base font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="modal" aria-expanded="false" aria-label="Close modal"
+                                            :aria-expanded="isOpen ? true : false"
+                                            @click="isOpen = false"
+                                        >Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
+                <!-- Offcanvas -->
+                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Offcanvas</p>
+                    <div class="col-span-2 sm:col-span-3">
+                        <div
+                            x-data="{ isOpen: false }" 
+                            @keydown.escape="isOpen = false"
+                        >
+                            <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="offcanvas" aria-expanded="false" aria-label="Open offcanvas"
+                                :aria-expanded="isOpen ? true : false"
+                                @click="isOpen = true"
+                            >Open Offcanvas</button>
+                            <div id="offcanvas" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen bg-neutral-500/50" aria-hidden="true"
+                                :class="{ 'hidden invisible': !isOpen }"
+                            >
+                                <div class="fixed top-0 left-0 h-full p-4 overflow-y-auto bg-white w-72 dark:bg-neutral-800 drop-shadow-md" aria-labelledby="offcanvas"
+                                    x-show="isOpen"
+                                    x-init="
+                                        $watch('isOpen', isOpen => { 
+                                            focusableElements = Array.from($el.querySelectorAll(`a, button, input, textarea, select, details, [tabindex], [contenteditable='true']`)).filter(element => {
+                                                return !element.closest(`[tabindex='-1'], .hidden, .invisible`) || null;
+                                            });
+                                            firstElement = focusableElements[0];
+                                            lastElement = focusableElements[focusableElements.length - 1];
+                                            focusTrapHandler = event => {
+                                                if (event.type === 'keydown' && event.key === 'Tab') {
+                                                    if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
+                                                        event.preventDefault();
+                                                        lastElement.focus();
+                                                    } else if (!event.shiftKey && document.activeElement === lastElement) {
+                                                        event.preventDefault();
+                                                        firstElement.focus();
+                                                    }
+                                                }
+                                            }
+                                            if (isOpen) {
+                                                $el.setAttribute('tabindex', 1);
+                                                $el.focus();
+                                                setTimeout(() => {
+                                                    $el.removeAttribute('tabindex');
+                                                }, 100);
+                                                window.addEventListener('keydown', focusTrapHandler);
+                                            } else {
+                                                window.removeEventListener('keydown', focusTrapHandler);
+                                            }
+                                        })
+                                    "
+                                    @click.outside="isOpen = false"
+                                >
+                                    <button type="button" class="absolute right-4 top-4 group" aria-controls="offcanvas" aria-expanded="false" aria-label="Close offcanvas"
+                                        :aria-expanded="isOpen ? true : false"
+                                        @click="isOpen = false"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M18 6l-12 12" />
+                                            <path d="M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                    <ul class="space-y-4">
+                                        <li>
+                                            <a href="#" class="block text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Offcanvas item 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Offcanvas item 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Offcanvas item 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
+                <!-- Tabs -->
+                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Tabs</p>
+                    <div class="col-span-2 sm:col-span-3">
+                        <div id="tab" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
+                            x-data="{ currentActive: 'tab-1' }"
+                        >
+                            <div class="bg-neutral-100 dark:bg-neutral-800">
+                                <div class="inline-block border-r border-r-neutral-300 dark:border-r-neutral-700">
+                                    <div class="flex divide-x divide-neutral-300 dark:divide-neutral-700">
+                                        <button type="button" class="px-6 py-4 text-base font-semibold" aria-expanded="true" aria-controls="tab-1" aria-label="Open tab 1"
+                                            :class="currentActive == 'tab-1' ? 'bg-white dark:bg-neutral-700 text-black dark:text-white' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50'"
+                                            :aria-expanded="currentActive == 'tab-1' ? true : false" 
+                                            @click="currentActive = 'tab-1'"
+                                        >Tab 1</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold" aria-expanded="false" aria-controls="tab-2" aria-label="Open tab 2"
+                                            :class="currentActive == 'tab-2' ? 'bg-white dark:bg-neutral-700 text-black dark:text-white' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50'"
+                                            :aria-expanded="currentActive == 'tab-2' ? true : false" 
+                                            @click="currentActive = 'tab-2'"
+                                        >Tab 2</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold" aria-expanded="false" aria-controls="tab-3" aria-label="Open tab 3"
+                                            :class="currentActive == 'tab-3' ? 'bg-white dark:bg-neutral-700 text-black dark:text-white' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50'"
+                                            :aria-expanded="currentActive == 'tab-3' ? true : false" 
+                                            @click="currentActive = 'tab-3'"
+                                        >Tab 3</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-1" class="p-4" aria-hidden="false" aria-labelledby="tab"
+                                :class="{'hidden invisible': currentActive != 'tab-1'}"
+                                :aria-hidden="currentActive == 'tab-1' ? false : true"  
+                            >
+                                <p class="text-base text-neutral-700 dark:text-neutral-300">This is a tab 1 content.</p>
+                            </div>
+                            <div id="tab-2" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="tab"
+                                :class="{'hidden invisible': currentActive != 'tab-2'}"
+                                :aria-hidden="currentActive == 'tab-2' ? false : true"  
+                            >
+                                <p class="text-base text-neutral-700 dark:text-neutral-300">This is a tab 2 content.</p>
+                            </div>
+                            <div id="tab-3" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="tab"
+                                :class="{'hidden invisible': currentActive != 'tab-3'}"
+                                :aria-hidden="currentActive == 'tab-3' ? false : true"  
+                            >
+                                <p class="text-base text-neutral-700 dark:text-neutral-300">This is a tab 3 content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>  
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="absolute bottom-0 flex flex-col items-center justify-between w-full max-w-screen-md px-4 pb-px transform -translate-x-1/2 sm:flex-row left-1/2 sm:px-8">
+        <p class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footer-app-name"></span> v<span id="footer-app-version"></span></p>
+        <span class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footer-year"></span> © Developed by <a href="https://mkfizi.dev" target="_blank" class="inline-block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">mkfizi</a></span>
+    </footer>
+</body>
+</html>
