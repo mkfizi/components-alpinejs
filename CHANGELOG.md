@@ -16,6 +16,6 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.1.0] - 2023-07-13
+## [0.1.0] - 2023-07-23
 ### Added
 - First release.
