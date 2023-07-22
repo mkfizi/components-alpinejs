@@ -1,6 +1,9 @@
 # Components (AlpineJS)
 Personal preferences of components for my open source projects.
 
+## Variant
+[Javascript](https://github.com/mkfizi/components)
+
 ## Installation
 Clone this repository to get started.
 
