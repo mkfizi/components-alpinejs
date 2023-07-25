@@ -79,9 +79,9 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Alert</p>
                     <div class="col-span-2 sm:col-span-3">
-                        <div id="alert" class="flex items-center gap-4 p-4 rounded-md bg-neutral-200 dark:bg-neutral-700" aria-hidden="false"
+                        <div id="alert" class="items-center gap-4 p-4 rounded-md bg-neutral-200 dark:bg-neutral-700" aria-hidden="false"
                             x-data="{ isClose: false }"
-                            :class="{'hidden invisible': isClose}"
+                            :class="isClose ? 'hidden invisible': 'flex'"
                             :aria-hidden="isClose ? true : false" 
                         >
                             <div class="grow">
