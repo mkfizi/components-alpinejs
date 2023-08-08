@@ -79,7 +79,7 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Alert</p>
                     <div class="col-span-2 sm:col-span-3">
-                        <div id="alert" class="items-center gap-4 p-4 border rounded-md bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700" aria-hidden="false"
+                        <div id="alert" class="items-center gap-4 p-4 border rounded-md bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700"
                             x-data="{ isClose: false }"
                             :class="isClose ? 'hidden invisible': 'flex'"
                             :aria-hidden="isClose ? true : false" 
@@ -115,7 +115,7 @@
                                     }
                                 }"
                             >
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-expanded="true" aria-controls="collapse-1" aria-label="Toggle collapse 1"
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="collapse-1" aria-label="Toggle collapse 1"
                                     :aria-expanded="collapse['isActive-1'] ? true : false" 
                                     @click="collapse['isActive-1'] = !collapse['isActive-1']"
                                 >
@@ -129,13 +129,13 @@
                                         <path d="M6 9l6 6l6 -6" />
                                     </svg>
                                 </button>
-                                <div id="collapse-1" class="p-4" aria-hidden="false"
+                                <div id="collapse-1" class="p-4"
                                     :class="{'hidden invisible': !collapse['isActive-1']}"
                                     :aria-hidden="collapse['isActive-1'] ? false : true" 
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 1 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-expanded="false" aria-controls="collapse-2" aria-label="Toggle collapse 2"
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="collapse-2" aria-label="Toggle collapse 2"
                                     :aria-expanded="collapse['isActive-2'] ? true : false" 
                                     @click="collapse['isActive-2'] = !collapse['isActive-2']"
                                 >
@@ -149,13 +149,13 @@
                                         <path d="M6 9l6 6l6 -6" />
                                     </svg>
                                 </button>
-                                <div id="collapse-2" class="invisible hidden p-4" aria-hidden="true"
-                                :class="{'hidden invisible': !collapse['isActive-2']}"
+                                <div id="collapse-2" class="invisible hidden p-4"
+                                    :class="{'hidden invisible': !collapse['isActive-2']}"
                                     :aria-hidden="collapse['isActive-2'] ? false : true" 
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 2 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-expanded="false" aria-controls="collapse-3" aria-label="Toggle collapse 3"
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="collapse-3" aria-label="Toggle collapse 3"
                                     :aria-expanded="collapse['isActive-3'] ? true : false" 
                                     @click="collapse['isActive-3'] = !collapse['isActive-3']"
                                 >
@@ -169,8 +169,8 @@
                                         <path d="M6 9l6 6l6 -6" />
                                     </svg>
                                 </button>
-                                <div id="collapse-3" class="invisible hidden p-4" aria-hidden="true"
-                                :class="{'hidden invisible': !collapse['isActive-3']}"
+                                <div id="collapse-3" class="invisible hidden p-4"
+                                    :class="{'hidden invisible': !collapse['isActive-3']}"
                                     :aria-hidden="collapse['isActive-3'] ? false : true" 
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 3 sentence.</p>
@@ -182,7 +182,7 @@
                             <div id="accordion" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
                                 x-data="{ currentActive: 'accordion-1' }"
                             >
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-expanded="true" aria-controls="accordion-1" aria-label="Toggle accordion 1"
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="accordion-1" aria-label="Toggle accordion 1"
                                     :aria-expanded="currentActive == 'accordion-1' ? true : false" 
                                     @click="currentActive = 'accordion-1'"
                                 >
@@ -196,13 +196,13 @@
                                         <path d="M6 9l6 6l6 -6" />
                                     </svg>
                                 </button>
-                                <div id="accordion-1" class="p-4" aria-hidden="false" aria-labelledby="accordion"
+                                <div id="accordion-1" class="p-4" aria-labelledby="accordion"
                                     :class="{'hidden invisible': currentActive != 'accordion-1'}"
                                     :aria-hidden="currentActive == 'accordion-1' ? false : true"  
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 1 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-expanded="false" aria-controls="accordion-2" aria-label="Toggle accordion 2"
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="accordion-2" aria-label="Toggle accordion 2"
                                     :aria-expanded="currentActive == 'accordion-2' ? true : false" 
                                     @click="currentActive = 'accordion-2'"
                                 >
@@ -216,13 +216,13 @@
                                         <path d="M6 9l6 6l6 -6" />
                                     </svg>
                                 </button>
-                                <div id="accordion-2" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="accordion"
+                                <div id="accordion-2" class="invisible hidden p-4" aria-labelledby="accordion"
                                     :class="{'hidden invisible': currentActive != 'accordion-2'}"
                                     :aria-hidden="currentActive == 'accordion-2' ? false : true"  
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 2 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-expanded="false" aria-controls="accordion-3" aria-label="Toggle accordion 3"
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="accordion-3" aria-label="Toggle accordion 3"
                                     :aria-expanded="currentActive == 'accordion-3' ? true : false" 
                                     @click="currentActive = 'accordion-3'"
                                 >
@@ -236,7 +236,7 @@
                                         <path d="M6 9l6 6l6 -6" />
                                     </svg>
                                 </button>
-                                <div id="accordion-3" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="accordion"
+                                <div id="accordion-3" class="invisible hidden p-4" aria-labelledby="accordion"
                                     :class="{'hidden invisible': currentActive != 'accordion-3'}"
                                     :aria-hidden="currentActive == 'accordion-3' ? false : true"  
                                 >
@@ -254,9 +254,9 @@
                         <div class="inline-block"
                             x-data="{ isOpen: false }" 
                             @click.outside="isOpen = false"
-                            @keydown.escape="isOpen = false"
+                            @keydown.escape.window="isOpen = false"
                         >
-                            <button type="button" class="flex gap-2 p-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown"
+                            <button type="button" class="flex gap-2 p-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="dropdown" aria-label="Toggle dropdown"
                                 :aria-expanded="isOpen ? true : false"
                                 @click="isOpen = !isOpen"
                             >
@@ -266,7 +266,7 @@
                                     <path d="M6 9l6 6l6 -6" />
                                 </svg>
                             </button>
-                            <div id="dropdown" class="relative invisible hidden" aria-hidden="true"
+                            <div id="dropdown" class="relative invisible hidden"
                                 :class="{ 'hidden invisible': !isOpen }"
                                 :aria-hidden="isOpen ? false : true"
                             >
@@ -292,14 +292,15 @@
                     <div class="col-span-2 sm:col-span-3">
                         <div
                             x-data="{ isOpen: false }" 
-                            @keydown.escape="isOpen = false"
+                            @keydown.escape.window="isOpen = false"
                         >
-                            <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="modal" aria-expanded="false" aria-label="Open modal"
+                            <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="modal" aria-label="Open modal"
                                 :aria-expanded="isOpen ? true : false"
                                 @click="isOpen = true"
                             >Open Modal</button>
-                            <div id="modal" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen bg-neutral-500/50" aria-hidden="true"
+                            <div id="modal" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen bg-neutral-500/50"
                                 :class="{ 'hidden invisible': !isOpen }"
+                                :aria-hidden="isOpen ? false : true"
                             >
                                 <div class="fixed p-8 transform -translate-x-1/2 -translate-y-1/2 bg-white border rounded-md left-1/2 top-1/2 border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 w-80 sm:w-96 drop-shadow-md" aria-labelledby="modal"
                                     x-show="isOpen"
@@ -335,7 +336,7 @@
                                     "
                                     @click.outside="isOpen = false"
                                 >
-                                    <button type="button" class="absolute right-4 top-4 group" aria-controls="modal" aria-expanded="false" aria-label="Close modal"
+                                    <button type="button" class="absolute right-4 top-4 group" aria-controls="modal" aria-label="Close modal"
                                         :aria-expanded="isOpen ? true : false"
                                         @click="isOpen = false"
                                     >
@@ -351,7 +352,7 @@
                                     </div>
                                     <div class="flex flex-wrap justify-center gap-2 mt-8">
                                         <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none">Okay</button>
-                                        <button type="button" class="px-8 py-2 text-base font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="modal" aria-expanded="false" aria-label="Close modal"
+                                        <button type="button" class="px-8 py-2 text-base font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="modal" aria-label="Close modal"
                                             :aria-expanded="isOpen ? true : false"
                                             @click="isOpen = false"
                                         >Cancel</button>
@@ -368,14 +369,15 @@
                     <div class="col-span-2 sm:col-span-3">
                         <div
                             x-data="{ isOpen: false }" 
-                            @keydown.escape="isOpen = false"
+                            @keydown.escape.window="isOpen = false"
                         >
-                            <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="offcanvas" aria-expanded="false" aria-label="Open offcanvas"
+                            <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Open offcanvas"
                                 :aria-expanded="isOpen ? true : false"
                                 @click="isOpen = true"
                             >Open Offcanvas</button>
-                            <div id="offcanvas" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen bg-neutral-500/50" aria-hidden="true"
+                            <div id="offcanvas" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen bg-neutral-500/50"
                                 :class="{ 'hidden invisible': !isOpen }"
+                                :aria-hidden="isOpen ? false : true"
                             >
                                 <div class="fixed top-0 left-0 h-full p-4 overflow-y-auto bg-white w-72 dark:bg-neutral-800 drop-shadow-md" aria-labelledby="offcanvas"
                                     x-show="isOpen"
@@ -411,7 +413,7 @@
                                     "
                                     @click.outside="isOpen = false"
                                 >
-                                    <button type="button" class="absolute right-4 top-4 group" aria-controls="offcanvas" aria-expanded="false" aria-label="Close offcanvas"
+                                    <button type="button" class="absolute right-4 top-4 group" aria-controls="offcanvas" aria-label="Close offcanvas"
                                         :aria-expanded="isOpen ? true : false"
                                         @click="isOpen = false"
                                     >
@@ -448,17 +450,17 @@
                             <div class="bg-neutral-100 dark:bg-neutral-800">
                                 <div class="inline-block border-r border-r-neutral-300 dark:border-r-neutral-700">
                                     <div class="flex divide-x divide-neutral-300 dark:divide-neutral-700">
-                                        <button type="button" class="px-6 py-4 text-base font-semibold" aria-expanded="true" aria-controls="tab-1" aria-label="Open tab 1"
+                                        <button type="button" class="px-6 py-4 text-base font-semibold" aria-controls="tab-1" aria-label="Open tab 1"
                                             :class="currentActive == 'tab-1' ? 'bg-white dark:bg-neutral-700 text-black dark:text-white' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50'"
                                             :aria-expanded="currentActive == 'tab-1' ? true : false" 
                                             @click="currentActive = 'tab-1'"
                                         >Tab 1</button>
-                                        <button type="button" class="px-6 py-4 text-base font-semibold" aria-expanded="false" aria-controls="tab-2" aria-label="Open tab 2"
+                                        <button type="button" class="px-6 py-4 text-base font-semibold" aria-controls="tab-2" aria-label="Open tab 2"
                                             :class="currentActive == 'tab-2' ? 'bg-white dark:bg-neutral-700 text-black dark:text-white' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50'"
                                             :aria-expanded="currentActive == 'tab-2' ? true : false" 
                                             @click="currentActive = 'tab-2'"
                                         >Tab 2</button>
-                                        <button type="button" class="px-6 py-4 text-base font-semibold" aria-expanded="false" aria-controls="tab-3" aria-label="Open tab 3"
+                                        <button type="button" class="px-6 py-4 text-base font-semibold" aria-controls="tab-3" aria-label="Open tab 3"
                                             :class="currentActive == 'tab-3' ? 'bg-white dark:bg-neutral-700 text-black dark:text-white' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50'"
                                             :aria-expanded="currentActive == 'tab-3' ? true : false" 
                                             @click="currentActive = 'tab-3'"
@@ -466,19 +468,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="tab-1" class="p-4" aria-hidden="false" aria-labelledby="tab"
+                            <div id="tab-1" class="p-4" aria-labelledby="tab"
                                 :class="{'hidden invisible': currentActive != 'tab-1'}"
                                 :aria-hidden="currentActive == 'tab-1' ? false : true"  
                             >
                                 <p class="text-base text-neutral-700 dark:text-neutral-300">This is a tab 1 content.</p>
                             </div>
-                            <div id="tab-2" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="tab"
+                            <div id="tab-2" class="invisible hidden p-4" aria-labelledby="tab"
                                 :class="{'hidden invisible': currentActive != 'tab-2'}"
                                 :aria-hidden="currentActive == 'tab-2' ? false : true"  
                             >
                                 <p class="text-base text-neutral-700 dark:text-neutral-300">This is a tab 2 content.</p>
                             </div>
-                            <div id="tab-3" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="tab"
+                            <div id="tab-3" class="invisible hidden p-4" aria-labelledby="tab"
                                 :class="{'hidden invisible': currentActive != 'tab-3'}"
                                 :aria-hidden="currentActive == 'tab-3' ? false : true"  
                             >
