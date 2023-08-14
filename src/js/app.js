@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * Components (AlpineJS) v0.1.0: app.js
- * Licensed under MIT (https://github.com/mkfizi/components/blob/main/LICENSE)
+ * Components (AlpineJS) v0.2.0: app.js
+ * Licensed under MIT (https://github.com/mkfizi/tailstart-kit-components-alpinejs/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -10,12 +10,10 @@
 
     const app = {};
 
-    app.name = 'Components (AlpineJS)';
-    app.version = '0.1.0';
-    app.breakpointSize = 1024;
+    app.name = 'Tailstart Kit - Components (AlpineJS)';
+    app.version = '0.2.0';
 
     app.element = {
-        navbar: document.getElementById('navbar'),
         footerCurrentYear: document.getElementById('footer-year'),
         footerAppName: document.getElementById('footer-app-name'),
         footerAppVersion: document.getElementById('footer-app-version'),
@@ -39,40 +37,14 @@
             }
         },
 
-        navbar: {
-            // Toggle navbar appearance base on window scroll Y position
-            toggle: () => {
-                if (app.element.navbar) {
-                    const isScrolled = window.scrollY > (app.element.navbar.offsetHeight - app.element.navbar.clientHeight);
-                    app.element.navbar.classList[isScrolled ? 'add' : 'remove']('border-neutral-200', 'dark:border-neutral-800');
-                    app.element.navbar.classList[isScrolled ? 'remove' : 'add']('border-transparent', 'dark:border-transparent');
-                }
-            },
-        },
-
         // Initialize view
         init: () => {
             app.view.footer.toggle();
         }
     }
 
-    app.event = {
-
-        window: {
-            // Handle window 'scroll' event
-            scroll: () => {
-                app.view.navbar.toggle();
-            }
-        },
-
-        init: () => {
-            window.addEventListener('scroll', app.event.window.scroll);
-        }
-    },
-
     app.init = () => {
         app.view.init();
-        app.event.init();
     }
 
     app.init();

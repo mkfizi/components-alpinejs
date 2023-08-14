@@ -30,13 +30,27 @@
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" as="script">
     <link rel="preload" href="./src/js/app.js" as="script">
 
-    <title>Components</title>
+    <title>Tailstart Kit - Components (AlpineJS)</title>
 </head>
 <body class="relative min-h-screen antialiased bg-white dark:bg-neutral-900">
 
     <!-- Navbar -->
-    <nav id="navbar" class="sticky top-0 z-10 w-full h-16 bg-white border-b border-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
-        <div class="flex items-center justify-end w-full h-full max-w-screen-md px-4 mx-auto sm:px-8">
+    <nav id="navbar" class="sticky top-0 z-10 w-full h-16 bg-white border-b dark:bg-neutral-900"
+        x-data="{ isScrolled: ''}"
+        @scroll.window="
+            isScrolled = window.scrollY > ($el.offsetHeight - $el.clientHeight);
+        "
+        :class="isScrolled ? 'border-neutral-200 dark:border-neutral-800' : 'border-transparent dark:border-transparent'" 
+    >
+        <div class="flex items-center justify-between w-full h-full max-w-screen-md px-4 mx-auto sm:px-8">
+
+            <!-- Logo -->
+            <a href="./" class="flex gap-4">
+                <img src="./src/images/logo.png" alt="Tailstart Kit Logo" class="w-6 h-6 dark:hidden">
+                <img src="./src/images/logo-dark.png" alt="Tailstart Kit Logo" class="hidden w-6 h-6 dark:block">
+                <span class="text-lg font-bold text-black dark:text-white">Tailstart Kit</span>
+            </a>
+            
             <div class="flex gap-4">
                 
                 <!-- Dark mode toggle button -->
@@ -79,23 +93,28 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Alert</p>
                     <div class="col-span-2 sm:col-span-3">
-                        <div id="alert" class="items-center gap-4 p-4 border rounded-md bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700"
-                            x-data="{ isClose: false }"
-                            :class="isClose ? 'hidden invisible': 'flex'"
-                            :aria-hidden="isClose ? true : false" 
-                        >
-                            <div class="grow">
-                                <span class="text-base text-neutral-700 dark:text-neutral-300">This is an alert text.</span>
-                            </div>
-                            <button type="button" class="shrink-0 group" aria-controls="alert" aria-label="Close alert"
-                                @click="isClose = true"
+                        <div  x-data="{ isClose: false }">
+                            <div id="alert" class="items-center gap-4 p-4 border rounded-md bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700"
+                                :class="isClose ? 'hidden invisible': 'flex'"
+                                :aria-hidden="isClose ? true : false" 
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M18 6l-12 12" />
-                                    <path d="M6 6l12 12" />
-                                </svg>
-                            </button>
+                                <div class="grow">
+                                    <span class="text-base text-neutral-700 dark:text-neutral-300">This is an alert text.</span>
+                                </div>
+                                <button type="button" class="shrink-0 group" aria-controls="alert" aria-label="Close alert"
+                                    @click="isClose = true"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M18 6l-12 12" />
+                                        <path d="M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="alert" aria-label="Reset alert" aria-labelledby="alert"
+                            :class="{ 'hidden invisible': !isClose }"
+                            @click="isClose = false"
+                            >Reset</button>
                         </div>
                     </div>
                 </div>  
@@ -105,7 +124,7 @@
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Collapse</p>
                     <div class="col-span-2 space-y-8 sm:col-span-3">
                         <div class="space-y-4">
-                            <p class="text-base font-bold text-black sm:text-lg lg:text-xl dark:text-white">Regular collapse</p> 
+                            <p class="text-base font-medium text-neutral-700 dark:text-neutral-300">Regular collapse</p> 
                             <div class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
                                 x-data="{
                                     collapse: {
@@ -178,7 +197,7 @@
                             </div>
                         </div>
                         <div class="space-y-4">
-                            <p class="text-base font-bold text-black sm:text-lg lg:text-xl dark:text-white">Accordion collapse</p>
+                            <p class="text-base font-medium text-neutral-700 dark:text-neutral-300">Accordion collapse</p>
                             <div id="accordion" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
                                 x-data="{ currentActive: 'accordion-1' }"
                             >
