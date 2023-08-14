@@ -16,6 +16,15 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [0.2.0] - 2023-08-15
+### Added
+- Tailstart Kit metadata.
+- Tailstart Kit logo to navbar.
+- Alert reset button.
+
+### Changed
+- Navbar script to AlpineJS.
+
 ## [0.1.0] - 2023-07-23
 ### Added
 - First release.
