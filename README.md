@@ -1,7 +1,7 @@
 # Tailstart Kit - Components (AlpineJS)
 Components for Tailstart Kit in HTML and AlpineJS.
 
-**Variant:**
+## Variant
 - [HTML + Javascript](https://github.com/mkfizi/tailstart-kit-components)
 
 ## Installation
