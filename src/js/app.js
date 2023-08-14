@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
  * Components (AlpineJS) v0.2.0: app.js
- * Licensed under MIT (https://github.com/mkfizi/tailstart-kit-components-alpinejs/blob/main/LICENSE)
+ * Licensed under MIT (https://github.com/mkfizi/tailstart-kit-components-alpine/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
