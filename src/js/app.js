@@ -10,7 +10,7 @@
 
     const app = {};
 
-    app.name = 'Tailstart Kit - Components UI Kit (AlpineJS)';
+    app.name = 'Tailstart Kit - Component UI Kit (AlpineJS)';
     app.version = '0.2.0';
 
     app.element = {
