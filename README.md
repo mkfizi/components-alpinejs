@@ -1,4 +1,4 @@
-# Tailstart Kit - Components (AlpineJS)
+# Tailstart Kit - Components UI Kit (AlpineJS)
 [Tailstart Kit](https://mkfizi.dev/tailstart-kit/) component UI kit in HTML and AlpineJS.
 
 ## Variant
