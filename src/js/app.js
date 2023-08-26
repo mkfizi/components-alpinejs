@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * Tailstart Kit - Component UI Kit (AlpineJS) v0.2.0: app.js
- * Licensed under MIT (https://github.com/mkfizi/tailstartkit-ui-component-alpine/blob/main/LICENSE)
+ * Tailstart - Components UI Kit (AlpineJS) v0.2.0: app.js
+ * Licensed under MIT (https://github.com/tailstart/uikit-components-alpinejs/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -10,7 +10,7 @@
 
     const app = {};
 
-    app.name = 'Tailstart Kit - Component UI Kit (AlpineJS)';
+    app.name = 'Tailstart - Components UI Kit (AlpineJS)';
     app.version = '0.2.0';
 
     app.element = {
