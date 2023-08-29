@@ -26,6 +26,8 @@ Put unreleased changes here.
 - Navbar script to AlpineJS.
 - Components appearances.
 - Focus trap trigger method.
+- Revise content padding size.
+- Revise footer appearance.
 
 ## [0.1.0] - 2023-07-23
 ### Added
