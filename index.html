@@ -355,7 +355,7 @@
                                     })
                                 "
                                 @keydown.tab.window="
-                                    event => {
+                                    (event) => {
                                         if (isOpen) {
                                             const focusableElements = Array.from($el.querySelectorAll(`a, button, input, textarea, select, details, [tabindex], [contenteditable='true']`)).filter(element => {
                                                 return !element.closest(`[tabindex='-1'], .hidden, .invisible`) || null;
@@ -432,7 +432,7 @@
                                     })
                                 "
                                 @keydown.tab.window="
-                                    event => {
+                                    (event) => {
                                         if (isOpen) {
                                             const focusableElements = Array.from($el.querySelectorAll(`a, button, input, textarea, select, details, [tabindex], [contenteditable='true']`)).filter(element => {
                                                 return !element.closest(`[tabindex='-1'], .hidden, .invisible`) || null;

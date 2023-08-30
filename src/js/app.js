@@ -21,6 +21,7 @@
 
     app.view = {
         footer: {
+            
             // Toggle footer content with current year, app name and version
             toggle: () => {
                 if (app.element.footerCurrentYear) {
