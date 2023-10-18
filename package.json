@@ -1,7 +1,7 @@
 {
 	"name": "@mkfizi/components-alpinejs",
 	"version": "0.2.1",
-	"description": "Curated component preferences for @mkfizi projects in AlpineJS.",
+	"description": "Curated component preferences in AlpineJS for @mkfizi projects.",
 	"keywords": [
 		"Tailwindcss",
 		"Components"

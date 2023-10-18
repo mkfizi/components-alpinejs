@@ -1,5 +1,5 @@
 # Component (AlpineJS)
-Curated components preferences for [@mkfizi](https://github.com/mkfizi) projects in AlpineJS.
+Curated components preferences in AlpineJS for [@mkfizi](https://github.com/mkfizi) projects.
 
 ## Variant
 - [Javascript](https://github.com/mkfizi/components)
