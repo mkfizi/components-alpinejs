@@ -1,7 +1,7 @@
 {
-	"name": "@tailstart/uikit-components-alpinejs",
-	"version": "0.2.0",
-	"description": "Tailstart development sandbox for components UI Kit in AlpineJS.",
+	"name": "@mkfizi/components-alpinejs",
+	"version": "0.2.1",
+	"description": "Curated component preferences for @mkfizi projects in AlpineJS.",
 	"keywords": [
 		"Tailwindcss",
 		"Components"

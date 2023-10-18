@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * Tailstart - Components UI Kit (AlpineJS) v0.2.0: app.js
- * Licensed under MIT (https://github.com/tailstart/uikit-components-alpinejs/blob/main/LICENSE)
+ * Components (AlpineJS) v0.2.1: app.js
+ * Licensed under MIT (https://github.com/mkfizi/components-alpinejs/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -10,8 +10,8 @@
 
     const app = {};
 
-    app.name = 'Tailstart - Components UI Kit (AlpineJS)';
-    app.version = '0.2.0';
+    app.name = 'Components (AlpineJS)';
+    app.version = '0.2.1';
 
     app.element = {
         footerCurrentYear: document.getElementById('footer-year'),

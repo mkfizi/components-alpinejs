@@ -1,8 +1,8 @@
-# Tailstart - Component UI Kit (AlpineJS)
-[Tailstart](https://tailstart.github.io) development sandbox for components UI Kit in AlpineJS.
+# Component (AlpineJS)
+Curated components preferences for [@mkfizi](https://github.com/mkfizi) projects in AlpineJS.
 
 ## Variant
-- [Javascript](https://github.com/tailstart/uikit-components)
+- [Javascript](https://github.com/mkfizi/components)
 
 ## Installation
 Clone this repository to get started.
@@ -22,4 +22,4 @@ npm run watch
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-[MIT](https://github.com/tailstart/uikit-components-alpinejs/blob/main/LICENSE)
+[MIT](https://github.com/mkfizi/components-alpinejs/blob/main/LICENSE)
