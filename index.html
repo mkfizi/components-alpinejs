@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"
-    x-data="{ 
+    x-data="{
+        // Handle dark mode toggle when the page is loaded
         theme: localStorage.theme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'), 
+        
+        // Workaround fix to handle viewport height issue on mobile browsers
+        // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
         viewportHeight: (window.innerHeight * 0.01) + 'px'
     }"
     :class="theme == 'dark' ? 'dark' : ''"
@@ -46,6 +50,7 @@
     <nav id="navbar" class="sticky top-0 z-10 w-full h-16 bg-white border-b dark:bg-neutral-900"
         x-data="{ isScrolled: ''}"
         @scroll.window="
+            // Toggle navbar appearance
             isScrolled = window.scrollY > ($el.offsetHeight - $el.clientHeight);
         "
         :class="isScrolled ? 'border-neutral-200 dark:border-neutral-800' : 'border-transparent dark:border-transparent'" 
@@ -64,6 +69,7 @@
                 <button type="button" aria-label="Toggle dark mode" 
                     x-data="{ isDarkMode: '' }"
                     @click="
+                        // Toggle dark mode
                         isDarkMode = localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches);
                         localStorage.theme = isDarkMode ? 'dark' : 'light';
                         document.documentElement.classList.toggle('dark', isDarkMode);
@@ -80,7 +86,7 @@
                     </svg>
                 </button>
 
-                <a href="https://github.com/mkfizi/components-alpinejs" target="_blank" class="group">
+                <a href="https://github.com/mkfizi/components-alpinejs" target="_blank" class="group" aria-label="Go to Github repository">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
@@ -100,6 +106,8 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Alert</p>
                     <div class="col-span-2 sm:col-span-3">
+
+                        <!-- Alert component -->
                         <div  x-data="{ isClose: false }">
                             <div id="alert" class="flex items-center gap-4 px-4 py-3 border rounded-md bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700"
                                 :class="isClose ? 'hidden invisible': 'flex'"
@@ -123,6 +131,7 @@
                                 @click="isClose = false"
                             >Reset</button>
                         </div>
+
                     </div>
                 </div>  
 
@@ -132,6 +141,8 @@
                     <div class="col-span-2 space-y-8 sm:col-span-3">
                         <div class="space-y-4">
                             <p class="text-base font-medium text-neutral-700 dark:text-neutral-300">Regular collapse</p> 
+                            
+                            <!-- Collapse component -->
                             <div class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
                                 x-data="{
                                     collapse: {
@@ -202,9 +213,12 @@
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 3 sentence.</p>
                                 </div>
                             </div>
+                            
                         </div>
                         <div class="space-y-4">
                             <p class="text-base font-medium text-neutral-700 dark:text-neutral-300">Accordion collapse</p>
+
+                            <!-- Accordion component -->
                             <div id="accordion" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
                                 x-data="{ currentActive: 'accordion-1' }"
                             >
@@ -269,6 +283,7 @@
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 3 sentence.</p>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>  
@@ -277,6 +292,8 @@
                 <div class="grid gap-4 pb-36 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Dropdown</p>
                     <div class="col-span-2 sm:col-span-3">
+
+                        <!-- Dropdown component -->
                         <div class="relative inline-block"
                             x-data="{ isOpen: false }" 
                             @click.outside="isOpen = false"
@@ -307,6 +324,7 @@
                                 </li>
                             </ul>
                         </div>
+
                     </div>
                 </div>  
 
@@ -314,6 +332,8 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Modal</p>
                     <div class="col-span-2 sm:col-span-3">
+
+                        <!-- Modal component -->
                         <div
                             x-data="{ isOpen: false }" 
                             @keydown.escape.window="isOpen = false"
@@ -326,6 +346,7 @@
                                 :class="{ 'hidden invisible': !isOpen }"
                                 :aria-hidden="isOpen ? false : true"
                                 x-init="
+                                    // Force focus on focus trap
                                     $watch('isOpen', isOpen => { 
                                         if (isOpen) {
                                             $el.setAttribute('tabindex', 1);
@@ -337,6 +358,7 @@
                                     })
                                 "
                                 @keydown.tab.window="
+                                    // Handle focus trap
                                     (event) => {
                                         if (isOpen) {
                                             const focusableElements = Array.from($el.querySelectorAll(`a, button, input, textarea, select, details, [tabindex], [contenteditable='true']`)).filter(element => {
@@ -391,6 +413,8 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Offcanvas</p>
                     <div class="col-span-2 sm:col-span-3">
+
+                        <!-- Offcanvas component -->
                         <div
                             x-data="{ isOpen: false }" 
                             @keydown.escape.window="isOpen = false"
@@ -403,6 +427,7 @@
                                 :class="{ 'hidden invisible': !isOpen }"
                                 :aria-hidden="isOpen ? false : true"
                                 x-init="
+                                    // Force focus on focus trap
                                     $watch('isOpen', isOpen => { 
                                         if (isOpen) {
                                             $el.setAttribute('tabindex', 1);
@@ -414,6 +439,7 @@
                                     })
                                 "
                                 @keydown.tab.window="
+                                    // Handle focus trap
                                     (event) => {
                                         if (isOpen) {
                                             const focusableElements = Array.from($el.querySelectorAll(`a, button, input, textarea, select, details, [tabindex], [contenteditable='true']`)).filter(element => {
@@ -468,6 +494,8 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Tabs</p>
                     <div class="col-span-2 sm:col-span-3">
+
+                        <!-- Tab component -->
                         <div id="tab" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
                             x-data="{ currentActive: 'tab-1' }"
                         >
