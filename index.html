@@ -50,6 +50,7 @@
     <nav id="navbar" class="sticky top-0 z-10 w-full h-16 bg-white border-b dark:bg-neutral-900"
         x-data="{ isScrolled: ''}"
         @scroll.window="
+        
             // Toggle navbar appearance
             isScrolled = window.scrollY > ($el.offsetHeight - $el.clientHeight);
         "
@@ -69,6 +70,7 @@
                 <button type="button" aria-label="Toggle dark mode" 
                     x-data="{ isDarkMode: '' }"
                     @click="
+                    
                         // Toggle dark mode
                         isDarkMode = localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches);
                         localStorage.theme = isDarkMode ? 'dark' : 'light';
