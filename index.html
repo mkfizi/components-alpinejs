@@ -48,11 +48,11 @@
 
     <!-- Navbar -->
     <nav id="navbar" class="sticky top-0 z-10 bg-white border-b dark:bg-neutral-900"
-        x-data="{ isScrolled: ''}"
+        x-data="{ isScrolled: window.scrollY > 0}"
         @scroll.window="
         
             // Toggle navbar appearance
-            isScrolled = window.scrollY > ($el.offsetHeight - $el.clientHeight);
+            isScrolled = window.scrollY > 0;
         "
         :class="isScrolled ? 'border-neutral-200 dark:border-neutral-800 shadow' : 'border-transparent dark:border-transparent'" 
     >
