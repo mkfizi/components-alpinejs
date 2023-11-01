@@ -16,12 +16,13 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.2.1] - 2023-10-18
+## [0.2.1] - 2023-11-02
 ### Changed
 - Remove from Tailstart.
 - Revise metadata.
 - Content max width to `sm`.
 - Remove `404.html` page style dependency.
+- Add collapse and dropdown padding for element focus.
 
 ## [0.2.0] - 2023-08-26
 ### Added
