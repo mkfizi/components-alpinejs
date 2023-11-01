@@ -154,60 +154,67 @@
                                     }
                                 }"
                             >
-                                <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="collapse-1" aria-label="Toggle collapse 1"
-                                    :aria-expanded="collapse['isActive-1'] ? true : false" 
-                                    @click="collapse['isActive-1'] = !collapse['isActive-1']"
-                                >
-                                    <div class="text-left grow">
-                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 1</span>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1"
-                                        :class="{'rotate-180': collapse['isActive-1']}"
+
+                                <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
+                                    <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" aria-controls="collapse-1" aria-label="Toggle collapse 1"
+                                        :aria-expanded="collapse['isActive-1'] ? true : false" 
+                                        @click="collapse['isActive-1'] = !collapse['isActive-1']"
                                     >
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </button>
+                                        <div class="text-left grow">
+                                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 1</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1"
+                                            :class="{'rotate-180': collapse['isActive-1']}"
+                                        >
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 9l6 6l6 -6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div id="collapse-1" class="p-4"
                                     :class="{'hidden invisible': !collapse['isActive-1']}"
                                     :aria-hidden="collapse['isActive-1'] ? false : true" 
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 1 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="collapse-2" aria-label="Toggle collapse 2"
-                                    :aria-expanded="collapse['isActive-2'] ? true : false" 
-                                    @click="collapse['isActive-2'] = !collapse['isActive-2']"
-                                >
-                                    <div class="text-left grow">
-                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 2</span>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1"
-                                        :class="{'rotate-180': collapse['isActive-2']}"
+                                <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
+                                    <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="collapse-2" aria-label="Toggle collapse 2"
+                                        :aria-expanded="collapse['isActive-2'] ? true : false" 
+                                        @click="collapse['isActive-2'] = !collapse['isActive-2']"
                                     >
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </button>
+                                        <div class="text-left grow">
+                                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 2</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1"
+                                            :class="{'rotate-180': collapse['isActive-2']}"
+                                        >
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 9l6 6l6 -6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div id="collapse-2" class="invisible hidden p-4"
                                     :class="{'hidden invisible': !collapse['isActive-2']}"
                                     :aria-hidden="collapse['isActive-2'] ? false : true" 
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 2 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="collapse-3" aria-label="Toggle collapse 3"
-                                    :aria-expanded="collapse['isActive-3'] ? true : false" 
-                                    @click="collapse['isActive-3'] = !collapse['isActive-3']"
-                                >
-                                    <div class="text-left grow">
-                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 3</span>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1"
-                                        :class="{'rotate-180': collapse['isActive-3']}"
+                                <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
+                                    <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" aria-controls="collapse-3" aria-label="Toggle collapse 3"
+                                        :aria-expanded="collapse['isActive-3'] ? true : false" 
+                                        @click="collapse['isActive-3'] = !collapse['isActive-3']"
                                     >
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </button>
+                                        <div class="text-left grow">
+                                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 3</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1"
+                                            :class="{'rotate-180': collapse['isActive-3']}"
+                                        >
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 9l6 6l6 -6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div id="collapse-3" class="invisible hidden p-4"
                                     :class="{'hidden invisible': !collapse['isActive-3']}"
                                     :aria-hidden="collapse['isActive-3'] ? false : true" 
@@ -224,60 +231,66 @@
                             <div id="accordion" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
                                 x-data="{ currentActive: 'accordion-1' }"
                             >
-                                <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="accordion-1" aria-label="Toggle accordion 1"
-                                    :aria-expanded="currentActive == 'accordion-1' ? true : false" 
-                                    @click="currentActive = 'accordion-1'"
-                                >
-                                    <div class="text-left grow">
-                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 1</span>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-1"
-                                        :class="{ 'rotate-180': currentActive == 'accordion-1' }"
+                                <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
+                                    <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" aria-controls="accordion-1" aria-label="Toggle accordion 1"
+                                        :aria-expanded="currentActive == 'accordion-1' ? true : false" 
+                                        @click="currentActive = 'accordion-1'"
                                     >
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </button>
+                                        <div class="text-left grow">
+                                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 1</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-1"
+                                            :class="{ 'rotate-180': currentActive == 'accordion-1' }"
+                                        >
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 9l6 6l6 -6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div id="accordion-1" class="p-4" aria-labelledby="accordion"
                                     :class="{'hidden invisible': currentActive != 'accordion-1'}"
                                     :aria-hidden="currentActive == 'accordion-1' ? false : true"  
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 1 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="accordion-2" aria-label="Toggle accordion 2"
-                                    :aria-expanded="currentActive == 'accordion-2' ? true : false" 
-                                    @click="currentActive = 'accordion-2'"
-                                >
-                                    <div class="text-left grow">
-                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 2</span>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-2"
-                                        :class="{ 'rotate-180': currentActive == 'accordion-2' }"
+                                <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
+                                    <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" aria-controls="accordion-2" aria-label="Toggle accordion 2"
+                                        :aria-expanded="currentActive == 'accordion-2' ? true : false" 
+                                        @click="currentActive = 'accordion-2'"
                                     >
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </button>
+                                        <div class="text-left grow">
+                                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 2</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-2"
+                                            :class="{ 'rotate-180': currentActive == 'accordion-2' }"
+                                        >
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 9l6 6l6 -6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div id="accordion-2" class="invisible hidden p-4" aria-labelledby="accordion"
                                     :class="{'hidden invisible': currentActive != 'accordion-2'}"
                                     :aria-hidden="currentActive == 'accordion-2' ? false : true"  
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 2 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" aria-controls="accordion-3" aria-label="Toggle accordion 3"
-                                    :aria-expanded="currentActive == 'accordion-3' ? true : false" 
-                                    @click="currentActive = 'accordion-3'"
-                                >
-                                    <div class="text-left grow">
-                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 3</span>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-3"
-                                        :class="{ 'rotate-180': currentActive == 'accordion-3' }"
+                                <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
+                                    <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" aria-controls="accordion-3" aria-label="Toggle accordion 3"
+                                        :aria-expanded="currentActive == 'accordion-3' ? true : false" 
+                                        @click="currentActive = 'accordion-3'"
                                     >
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </button>
+                                        <div class="text-left grow">
+                                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 3</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-3"
+                                            :class="{ 'rotate-180': currentActive == 'accordion-3' }"
+                                        >
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 9l6 6l6 -6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div id="accordion-3" class="invisible hidden p-4" aria-labelledby="accordion"
                                     :class="{'hidden invisible': currentActive != 'accordion-3'}"
                                     :aria-hidden="currentActive == 'accordion-3' ? false : true"  
@@ -311,7 +324,7 @@
                                     <path d="M6 9l6 6l6 -6" />
                                 </svg>
                             </button>
-                            <ul id="dropdown" class="absolute right-0 z-10 invisible hidden w-48 py-1 mt-2 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 drop-shadow-md" aria-labelledby="dropdown"
+                            <ul id="dropdown" class="absolute right-0 z-10 invisible hidden w-48 p-0.5 mt-2 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 drop-shadow-md" aria-labelledby="dropdown"
                                 :class="{ 'hidden invisible': !isOpen }"
                                 :aria-hidden="isOpen ? false : true"
                             >
