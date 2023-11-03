@@ -856,20 +856,12 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.stroke-neutral-600 {
-  stroke: #525252;
+.stroke-neutral-500 {
+  stroke: #737373;
 }
 
 .stroke-white {
   stroke: #fff;
-}
-
-.p-4 {
-  padding: 1rem;
-}
-
-.p-8 {
-  padding: 2rem;
 }
 
 .p-0 {
@@ -880,14 +872,17 @@ video {
   padding: 0.125rem;
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
-}
-
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
 }
 
 .py-2 {
@@ -965,9 +960,9 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.text-neutral-600 {
+.text-neutral-500 {
   --tw-text-opacity: 1;
-  color: rgb(82 82 82 / var(--tw-text-opacity));
+  color: rgb(115 115 115 / var(--tw-text-opacity));
 }
 
 .text-neutral-700 {
@@ -1017,6 +1012,14 @@ video {
 .hover\:bg-neutral-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(64 64 64 / var(--tw-bg-opacity));
+}
+
+.hover\:stroke-black:hover {
+  stroke: #000;
+}
+
+.hover\:stroke-white:hover {
+  stroke: #fff;
 }
 
 .hover\:text-black:hover {
@@ -1147,6 +1150,10 @@ video {
 :is(.dark .dark\:hover\:bg-neutral-800:hover) {
   --tw-bg-opacity: 1;
   background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:hover\:stroke-white:hover) {
+  stroke: #fff;
 }
 
 :is(.dark .dark\:hover\:text-white:hover) {
