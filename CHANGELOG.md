@@ -24,6 +24,7 @@ Put unreleased changes here.
 - Remove `404.html` page style dependency.
 - Add collapse and dropdown padding for element focus.
 - Change link colours to `neutral-500` for light mode.
+- Change `drop-shadow-md` to `shadow`.
 
 ## [0.2.0] - 2023-08-26
 ### Added
