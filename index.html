@@ -324,7 +324,7 @@
                                     <path d="M6 9l6 6l6 -6" />
                                 </svg>
                             </button>
-                            <ul id="dropdown" class="absolute right-0 z-10 invisible hidden w-48 p-0.5 mt-2 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 drop-shadow-md" aria-labelledby="dropdown"
+                            <ul id="dropdown" class="absolute right-0 z-10 invisible hidden w-48 p-0.5 mt-2 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 shadow" aria-labelledby="dropdown"
                                 :class="{ 'hidden invisible': !isOpen }"
                                 :aria-hidden="isOpen ? false : true"
                             >
@@ -393,7 +393,7 @@
                                     }
                                 "
                             >
-                                <div class="fixed p-8 transform -translate-x-1/2 -translate-y-1/2 bg-white border rounded-md left-1/2 top-1/2 border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 w-80 sm:w-96 drop-shadow-md" aria-labelledby="modal"
+                                <div class="fixed p-8 transform -translate-x-1/2 -translate-y-1/2 bg-white border rounded-md shadow left-1/2 top-1/2 border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 w-80 sm:w-96" aria-labelledby="modal"
                                     x-show="isOpen"
                                     @click.outside="isOpen = false"
                                 >
@@ -474,7 +474,7 @@
                                     }
                                 "
                             >
-                                <div class="fixed top-0 left-0 h-full p-4 overflow-y-auto bg-white w-72 dark:bg-neutral-800 drop-shadow-md" aria-labelledby="offcanvas"
+                                <div class="fixed top-0 left-0 h-full p-4 overflow-y-auto bg-white shadow w-72 dark:bg-neutral-800" aria-labelledby="offcanvas"
                                     x-show="isOpen"
                                     @click.outside="isOpen = false"
                                 >
