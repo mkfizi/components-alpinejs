@@ -18,6 +18,7 @@ Put unreleased changes here.
 
 ## [0.2.1] - 2023-11-03
 ### Added
+- Collapse and dropdown padding for element focus.
 - Border on offcanvas.
 
 ### Changed
@@ -25,7 +26,6 @@ Put unreleased changes here.
 - Revise metadata.
 - Content max width to `sm`.
 - Remove `404.html` page style dependency.
-- Add collapse and dropdown padding for element focus.
 - Change link colours to `neutral-500` for light mode.
 - Change `drop-shadow-md` to `shadow`.
 
