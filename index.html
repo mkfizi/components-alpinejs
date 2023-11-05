@@ -111,7 +111,7 @@
 
                         <!-- Alert component -->
                         <div  x-data="{ isClose: false }">
-                            <div id="alert" class="flex items-center gap-4 px-4 py-3 border rounded-md bg-neutral-100 dark:bg-neutral-800 border-neutral-300/50 dark:border-neutral-700/50"
+                            <div id="alert" class="flex items-center gap-4 px-4 py-3 border rounded-md bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700"
                                 :class="isClose ? 'hidden invisible': 'flex'"
                                 :aria-hidden="isClose ? true : false" 
                             >
@@ -145,7 +145,7 @@
                             <p class="text-base font-medium text-neutral-700 dark:text-neutral-300">Regular collapse</p> 
                             
                             <!-- Collapse component -->
-                            <div class="overflow-hidden border divide-y rounded-md border-neutral-300/50 dark:border-neutral-700/50 divide-neutral-300/50 dark:divide-neutral-700/50"
+                            <div class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
                                 x-data="{
                                     collapse: {
                                         'isActive-1': true,
@@ -228,7 +228,7 @@
                             <p class="text-base font-medium text-neutral-700 dark:text-neutral-300">Accordion collapse</p>
 
                             <!-- Accordion component -->
-                            <div id="accordion" class="overflow-hidden border divide-y rounded-md border-neutral-300/50 dark:border-neutral-700/50 divide-neutral-300/50 dark:divide-neutral-700/50"
+                            <div id="accordion" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
                                 x-data="{ currentActive: 'accordion-1' }"
                             >
                                 <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
@@ -324,7 +324,7 @@
                                     <path d="M6 9l6 6l6 -6" />
                                 </svg>
                             </button>
-                            <ul id="dropdown" class="absolute right-0 z-10 invisible hidden w-48 p-0.5 mt-2 bg-white border rounded-md border-neutral-300/50 dark:border-neutral-700/50 dark:bg-neutral-900 shadow" aria-labelledby="dropdown"
+                            <ul id="dropdown" class="absolute right-0 z-10 invisible hidden w-48 p-0.5 mt-2 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 shadow" aria-labelledby="dropdown"
                                 :class="{ 'hidden invisible': !isOpen }"
                                 :aria-hidden="isOpen ? false : true"
                             >
@@ -393,7 +393,7 @@
                                     }
                                 "
                             >
-                                <div class="fixed p-8 transform -translate-x-1/2 -translate-y-1/2 bg-white border rounded-md shadow left-1/2 top-1/2 border-neutral-300/50 dark:border-neutral-700/50 dark:bg-neutral-800 w-80 sm:w-96" aria-labelledby="modal"
+                                <div class="fixed p-8 transform -translate-x-1/2 -translate-y-1/2 bg-white border rounded-md shadow left-1/2 top-1/2 border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 w-80 sm:w-96" aria-labelledby="modal"
                                     x-show="isOpen"
                                     @click.outside="isOpen = false"
                                 >
@@ -474,7 +474,7 @@
                                     }
                                 "
                             >
-                                <div class="fixed top-0 left-0 h-full p-4 overflow-y-auto bg-white border-r shadow w-72 dark:bg-neutral-800 border-neutral-300/50 dark:border-neutral-700/50" aria-labelledby="offcanvas"
+                                <div class="fixed top-0 left-0 h-full p-4 overflow-y-auto bg-white border-r shadow w-72 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700" aria-labelledby="offcanvas"
                                     x-show="isOpen"
                                     @click.outside="isOpen = false"
                                 >
@@ -511,12 +511,12 @@
                     <div class="col-span-2 sm:col-span-3">
 
                         <!-- Tab component -->
-                        <div id="tab" class="overflow-hidden border divide-y rounded-md border-neutral-300/50 dark:border-neutral-700/50 divide-neutral-300/50 dark:divide-neutral-700/50"
+                        <div id="tab" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
                             x-data="{ currentActive: 'tab-1' }"
                         >
                             <div class="bg-neutral-100 dark:bg-neutral-800">
                                 <div class="inline-block border-r border-r-neutral-300 dark:border-r-neutral-700">
-                                    <div class="flex divide-x divide-neutral-300/50 dark:divide-neutral-700/50">
+                                    <div class="flex divide-x divide-neutral-300 dark:divide-neutral-700">
                                         <button type="button" class="px-4 py-3 text-base font-semibold" aria-controls="tab-1" aria-label="Open tab 1"
                                             :class="currentActive == 'tab-1' ? 'bg-white dark:bg-neutral-700 text-black dark:text-white' : 'text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50'"
                                             :aria-expanded="currentActive == 'tab-1' ? true : false" 
