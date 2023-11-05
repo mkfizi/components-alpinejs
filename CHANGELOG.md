@@ -17,6 +17,9 @@ Types of changes:
 Put unreleased changes here.
 
 ## [0.2.1] - 2023-11-03
+### Added
+- Border on offcanvas.
+
 ### Changed
 - Remove from Tailstart.
 - Revise metadata.
