@@ -16,7 +16,7 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.2.1] - 2023-11-03
+## [0.2.1] - 2023-11-07
 ### Added
 - Collapse and dropdown padding for element focus.
 - Border on offcanvas.
