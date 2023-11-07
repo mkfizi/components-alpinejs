@@ -244,7 +244,7 @@
                                 <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
                                     <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" aria-controls="accordion-1" aria-label="Toggle accordion 1"
                                         :aria-expanded="currentActive == 'accordion-1' ? true : false" 
-                                        @click="currentActive = 'accordion-1'"
+                                        @click="currentActive == 'accordion-1 ? currentActive = null : currentActive = 'accordion-1'"
                                     >
                                         <div class="text-left grow">
                                             <span class="text-base font-semibold text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 1</span>
@@ -266,7 +266,7 @@
                                 <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
                                     <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" aria-controls="accordion-2" aria-label="Toggle accordion 2"
                                         :aria-expanded="currentActive == 'accordion-2' ? true : false" 
-                                        @click="currentActive = 'accordion-2'"
+                                        @click="currentActive == 'accordion-2 ? currentActive = null : currentActive = 'accordion-2'"
                                     >
                                         <div class="text-left grow">
                                             <span class="text-base font-semibold text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 2</span>
@@ -287,8 +287,8 @@
                                 </div>
                                 <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
                                     <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" aria-controls="accordion-3" aria-label="Toggle accordion 3"
-                                        :aria-expanded="currentActive == 'accordion-3' ? true : false" 
-                                        @click="currentActive = 'accordion-3'"
+                                        :aria-expanded="currentActive == 'accordion-3' ? true : false"
+                                        @click="currentActive == 'accordion-3 ? currentActive = null : currentActive = 'accordion-3'"
                                     >
                                         <div class="text-left grow">
                                             <span class="text-base font-semibold text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 3</span>
