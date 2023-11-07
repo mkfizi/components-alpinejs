@@ -48,7 +48,9 @@
 
     <!-- Navbar -->
     <nav id="navbar" class="sticky top-0 z-10 bg-white border-b dark:bg-neutral-900"
-        x-data="{ isScrolled: window.scrollY > 0}"
+        x-data="{ 
+            isScrolled: window.scrollY > 0
+        }"
         @scroll.window="
         
             // Toggle navbar appearance
@@ -68,7 +70,9 @@
                 
                 <!-- Dark mode toggle button -->
                 <button type="button" class="group" aria-label="Toggle dark mode"
-                    x-data="{ isDarkMode: '' }"
+                    x-data="{ 
+                        isDarkMode: '' 
+                    }"
                     @click="
                     
                         // Toggle dark mode
@@ -110,7 +114,11 @@
                     <div class="col-span-2 sm:col-span-3">
 
                         <!-- Alert component -->
-                        <div  x-data="{ isClose: false }">
+                        <div 
+                            x-data="{ 
+                                isClose: false 
+                            }"
+                        >
                             <div id="alert" class="flex items-center gap-4 px-4 py-3 border rounded-md bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700"
                                 :class="isClose ? 'hidden invisible': 'flex'"
                                 :aria-hidden="isClose ? true : false" 
@@ -229,7 +237,9 @@
 
                             <!-- Accordion component -->
                             <div id="accordion" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
-                                x-data="{ currentActive: 'accordion-1' }"
+                                x-data="{ 
+                                    currentActive: 'accordion-1' 
+                                }"
                             >
                                 <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
                                     <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" aria-controls="accordion-1" aria-label="Toggle accordion 1"
@@ -310,7 +320,9 @@
 
                         <!-- Dropdown component -->
                         <div class="relative inline-block"
-                            x-data="{ isOpen: false }" 
+                            x-data="{ 
+                                isOpen: false 
+                            }" 
                             @click.outside="isOpen = false"
                             @keydown.escape.window="isOpen = false"
                         >
@@ -350,7 +362,9 @@
 
                         <!-- Modal component -->
                         <div
-                            x-data="{ isOpen: false }" 
+                            x-data="{ 
+                                isOpen: false 
+                            }" 
                             @keydown.escape.window="isOpen = false"
                         >
                             <button type="button" class="px-4 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="modal" aria-label="Open modal"
@@ -431,7 +445,9 @@
 
                         <!-- Offcanvas component -->
                         <div
-                            x-data="{ isOpen: false }" 
+                            x-data="{ 
+                                isOpen: false
+                            }" 
                             @keydown.escape.window="isOpen = false"
                         >
                             <button type="button" class="px-4 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="offcanvas" aria-label="Open offcanvas"
@@ -512,7 +528,9 @@
 
                         <!-- Tab component -->
                         <div id="tab" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700"
-                            x-data="{ currentActive: 'tab-1' }"
+                            x-data="{ 
+                                currentActive: 'tab-1' 
+                            }"
                         >
                             <div class="bg-neutral-100 dark:bg-neutral-800">
                                 <div class="inline-block border-r border-r-neutral-300 dark:border-r-neutral-700">
