@@ -9,7 +9,9 @@
         viewportHeight: (window.innerHeight * 0.01) + 'px'
     }"
     :class="theme == 'dark' ? 'dark' : ''"
-    :style="{ '--vh': viewportHeight}"
+    :style="{ 
+        '--vh': viewportHeight
+    }"
     @resize.window="viewportHeight = (window.innerHeight * 0.01) + 'px'"
 >
 <head>
@@ -172,7 +174,9 @@
                                             <span class="text-base font-semibold text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 1</span>
                                         </div>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1"
-                                            :class="{'rotate-180': collapse['isActive-1']}"
+                                            :class="{
+                                                'rotate-180': collapse['isActive-1']
+                                            }"
                                         >
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M6 9l6 6l6 -6" />
@@ -180,7 +184,9 @@
                                     </button>
                                 </div>
                                 <div id="collapse-1" class="p-4"
-                                    :class="{'hidden invisible': !collapse['isActive-1']}"
+                                    :class="{
+                                        'hidden invisible': !collapse['isActive-1']
+                                    }"
                                     :aria-hidden="collapse['isActive-1'] ? false : true" 
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 1 sentence.</p>
@@ -194,7 +200,9 @@
                                             <span class="text-base font-semibold text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 2</span>
                                         </div>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1"
-                                            :class="{'rotate-180': collapse['isActive-2']}"
+                                            :class="{
+                                                'rotate-180': collapse['isActive-2']
+                                            }"
                                         >
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M6 9l6 6l6 -6" />
@@ -202,7 +210,9 @@
                                     </button>
                                 </div>
                                 <div id="collapse-2" class="invisible hidden p-4"
-                                    :class="{'hidden invisible': !collapse['isActive-2']}"
+                                    :class="{
+                                        'hidden invisible': !collapse['isActive-2']
+                                    }"
                                     :aria-hidden="collapse['isActive-2'] ? false : true" 
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 2 sentence.</p>
@@ -216,7 +226,9 @@
                                             <span class="text-base font-semibold text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 3</span>
                                         </div>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1"
-                                            :class="{'rotate-180': collapse['isActive-3']}"
+                                            :class="{
+                                                'rotate-180': collapse['isActive-3']
+                                            }"
                                         >
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M6 9l6 6l6 -6" />
@@ -224,7 +236,9 @@
                                     </button>
                                 </div>
                                 <div id="collapse-3" class="invisible hidden p-4"
-                                    :class="{'hidden invisible': !collapse['isActive-3']}"
+                                    :class="{
+                                        'hidden invisible': !collapse['isActive-3']
+                                    }"
                                     :aria-hidden="collapse['isActive-3'] ? false : true" 
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 3 sentence.</p>
@@ -250,7 +264,9 @@
                                             <span class="text-base font-semibold text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 1</span>
                                         </div>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-1"
-                                            :class="{ 'rotate-180': currentActive == 'accordion-1' }"
+                                            :class="{ 
+                                                'rotate-180': currentActive == 'accordion-1' 
+                                            }"
                                         >
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M6 9l6 6l6 -6" />
@@ -258,7 +274,9 @@
                                     </button>
                                 </div>
                                 <div id="accordion-1" class="p-4" aria-labelledby="accordion"
-                                    :class="{'hidden invisible': currentActive != 'accordion-1'}"
+                                    :class="{
+                                        'hidden invisible': currentActive != 'accordion-1'
+                                    }"
                                     :aria-hidden="currentActive == 'accordion-1' ? false : true"  
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 1 sentence.</p>
@@ -272,7 +290,9 @@
                                             <span class="text-base font-semibold text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 2</span>
                                         </div>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-2"
-                                            :class="{ 'rotate-180': currentActive == 'accordion-2' }"
+                                            :class="{ 
+                                                'rotate-180': currentActive == 'accordion-2' 
+                                            }"
                                         >
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M6 9l6 6l6 -6" />
@@ -280,7 +300,9 @@
                                     </button>
                                 </div>
                                 <div id="accordion-2" class="invisible hidden p-4" aria-labelledby="accordion"
-                                    :class="{'hidden invisible': currentActive != 'accordion-2'}"
+                                    :class="{
+                                        'hidden invisible': currentActive != 'accordion-2'
+                                    }"
                                     :aria-hidden="currentActive == 'accordion-2' ? false : true"  
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 2 sentence.</p>
@@ -294,7 +316,9 @@
                                             <span class="text-base font-semibold text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle accordion 3</span>
                                         </div>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-3"
-                                            :class="{ 'rotate-180': currentActive == 'accordion-3' }"
+                                            :class="{ 
+                                                'rotate-180': currentActive == 'accordion-3' 
+                                            }"
                                         >
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M6 9l6 6l6 -6" />
@@ -302,7 +326,9 @@
                                     </button>
                                 </div>
                                 <div id="accordion-3" class="invisible hidden p-4" aria-labelledby="accordion"
-                                    :class="{'hidden invisible': currentActive != 'accordion-3'}"
+                                    :class="{
+                                        'hidden invisible': currentActive != 'accordion-3'
+                                    }"
                                     :aria-hidden="currentActive == 'accordion-3' ? false : true"  
                                 >
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 3 sentence.</p>
@@ -337,7 +363,9 @@
                                 </svg>
                             </button>
                             <ul id="dropdown" class="absolute right-0 z-10 invisible hidden w-48 p-0.5 mt-2 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 shadow" aria-labelledby="dropdown"
-                                :class="{ 'hidden invisible': !isOpen }"
+                                :class="{ 
+                                    'hidden invisible': !isOpen 
+                                }"
                                 :aria-hidden="isOpen ? false : true"
                             >
                                 <li class="hover:bg-neutral-100 dark:hover:bg-neutral-800">
@@ -372,9 +400,12 @@
                                 @click="isOpen = true"
                             >Open Modal</button>
                             <div id="modal" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen bg-neutral-500/50"
-                                :class="{ 'hidden invisible': !isOpen }"
+                                :class="{ 
+                                    'hidden invisible': !isOpen 
+                                }"
                                 :aria-hidden="isOpen ? false : true"
                                 x-init="
+                                
                                     // Force focus on focus trap
                                     $watch('isOpen', isOpen => { 
                                         if (isOpen) {
@@ -387,6 +418,7 @@
                                     })
                                 "
                                 @keydown.tab.window="
+                                
                                     // Handle focus trap
                                     (event) => {
                                         if (isOpen) {
@@ -455,9 +487,12 @@
                                 @click="isOpen = true"
                             >Open Offcanvas</button>
                             <div id="offcanvas" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen bg-neutral-500/50"
-                                :class="{ 'hidden invisible': !isOpen }"
+                                :class="{ 
+                                    'hidden invisible': !isOpen 
+                                }"
                                 :aria-hidden="isOpen ? false : true"
                                 x-init="
+
                                     // Force focus on focus trap
                                     $watch('isOpen', isOpen => { 
                                         if (isOpen) {
@@ -470,6 +505,7 @@
                                     })
                                 "
                                 @keydown.tab.window="
+
                                     // Handle focus trap
                                     (event) => {
                                         if (isOpen) {
@@ -554,19 +590,25 @@
                                 </div>
                             </div>
                             <div id="tab-1" class="p-4" aria-labelledby="tab"
-                                :class="{'hidden invisible': currentActive != 'tab-1'}"
+                                :class="{
+                                    'hidden invisible': currentActive != 'tab-1'
+                                }"
                                 :aria-hidden="currentActive == 'tab-1' ? false : true"  
                             >
                                 <p class="text-base text-neutral-700 dark:text-neutral-300">This is a tab 1 content.</p>
                             </div>
                             <div id="tab-2" class="invisible hidden p-4" aria-labelledby="tab"
-                                :class="{'hidden invisible': currentActive != 'tab-2'}"
+                                :class="{
+                                    'hidden invisible': currentActive != 'tab-2'
+                                }"
                                 :aria-hidden="currentActive == 'tab-2' ? false : true"  
                             >
                                 <p class="text-base text-neutral-700 dark:text-neutral-300">This is a tab 2 content.</p>
                             </div>
                             <div id="tab-3" class="invisible hidden p-4" aria-labelledby="tab"
-                                :class="{'hidden invisible': currentActive != 'tab-3'}"
+                                :class="{
+                                    'hidden invisible': currentActive != 'tab-3'
+                                }"
                                 :aria-hidden="currentActive == 'tab-3' ? false : true"  
                             >
                                 <p class="text-base text-neutral-700 dark:text-neutral-300">This is a tab 3 content.</p>
