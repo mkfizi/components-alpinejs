@@ -29,6 +29,9 @@ Put unreleased changes here.
 - Change link colours to `neutral-500` for light mode.
 - Change `drop-shadow-md` to `shadow`.
 
+### Fixed
+- Accordion toggle close when active.
+
 ## [0.2.0] - 2023-08-26
 ### Added
 - Tailstart Kit metadata.
