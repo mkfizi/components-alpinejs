@@ -8,8 +8,10 @@
         // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
         viewportHeight: (window.innerHeight * 0.01) + 'px'
     }"
-    x-bind:class="theme == 'dark' ? 'dark' : ''"
-    x-bind:style="{ '--vh': viewportHeight}"
+    :class="theme == 'dark' ? 'dark' : ''"
+    :style="{ 
+        '--vh': viewportHeight
+    }"
     @resize.window="viewportHeight = (window.innerHeight * 0.01) + 'px'"
 >
 <head>
