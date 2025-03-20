@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#ffffff">
+        <!-- END Metadata -->
+        <!-- SEO -->
+        <meta name="title" content="UI Component AlpineJS">
+        <meta name="description" content="Component UI sandbox in AlpineJS and TailwindCSS.">
+        <meta name="robots" content="index, follow">
+        <!-- END SEO -->  
+        <!-- Facebook Open Graph -->
+        <meta property="og:url" content="https://mkfizi.dev">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="UI Component AlpineJS">
+        <meta property="og:image" content="path/to/img/meta-og.jpg">
+        <meta property="og:description" content="Component UI sandbox in AlpineJS and TailwindCSS.">
+        <meta property="og:site_name" content="UI Component AlpineJS">
+        <!-- END Facebook Open Graph -->
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@mkfizi">
+        <meta name="twitter:creator" content="@mkfizi">
+        <meta name="twitter:url" content="https://mkfizi.dev">
+        <meta name="twitter:title" content="UI Component AlpineJS">
+        <meta name="twitter:description" content="Component UI sandbox in AlpineJS and TailwindCSS.">
+        <meta name="twitter:image" content="path/to/img/meta-card.jpg">
+        <!-- END Twitter Card -->
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="/site.webmanifest">
+        <!-- END Favicon -->
+        <!-- Style -->
+        <link rel="stylesheet" href="./src/css/index.css">
+        <link rel="preload" href="./src/css/index.css" as="style">
+        <!-- END Style -->
+        <!-- Script -->
+        <script src="./src/js/index.js" type="module" defer></script>
+        <link rel="preload" href="./src/js/index.js" as="script">
+        <!-- END Script -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
+        <title>UI Component AlpineJS | Tabs</title>
+    </head>
+    <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
+        <!-- Content -->
+        <main class="mx-auto px-4 sm:px-8 py-32 w-full max-w-screen-sm">           
+            <!-- Tabs -->
+            <div id="tabs" class="space-y-2"
+                x-data="{ currentActive: 'tab-1' }"
+            >
+                <div class="inline-flex items-center gap-1 p-1 border border-neutral-200 dark:border-neutral-800 rounded">
+                    <!-- Tab 1 Button -->
+                    <button id="tab-show-button-1" type="button" class="bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-4 py-1 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-1" aria-expanded="true" aria-label="Show tab 1 content."
+                        :class="{
+                            'bg-black hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white dark:bg-neutral-100 text-white dark:text-black': currentActive == 'tab-1',
+                            'bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-600 focus:bg-neutral-200 dark:focus:bg-neutral-600 dark:bg-neutral-700 text-black dark:text-white': currentActive != 'tab-1'
+                        }"
+                        :aria-expanded="currentActive == 'tab-1' ? true : false" 
+                        @click="currentActive = 'tab-1'"
+                    >
+                        <span>Tab 1</span>
+                    </button>  
+                    <!-- END Tab 1 Button -->
+                     <!-- Tab 2 Button -->
+                    <button id="tab-show-button-2" type="button" class="bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 disabled:opacity-60 px-4 py-1 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-2" aria-expanded="true" aria-label="Show tab 2 content."
+                        :class="{
+                            'bg-black hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white dark:bg-neutral-100 text-white dark:text-black': currentActive == 'tab-2',
+                            'bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-600 focus:bg-neutral-200 dark:focus:bg-neutral-600 dark:bg-neutral-700 text-black dark:text-white': currentActive != 'tab-2'
+                        }"
+                        :aria-expanded="currentActive == 'tab-2' ? true : false" 
+                        @click="currentActive = 'tab-2'"
+                    >
+                        <span>Tab 2</span>
+                    </button>  
+                    <!-- END Tab 2 Button -->
+                    <!-- Tab 3 Button -->
+                    <button id="tab-show-button-3" type="button" class="bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 disabled:opacity-60 px-4 py-1 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-3" aria-expanded="true" aria-label="Show tab 2 content."
+                        :class="{
+                            'bg-black hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white dark:bg-neutral-100 text-white dark:text-black': currentActive == 'tab-3',
+                            'bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-600 focus:bg-neutral-200 dark:focus:bg-neutral-600 dark:bg-neutral-700 text-black dark:text-white': currentActive != 'tab-3'
+                        }"
+                        :aria-expanded="currentActive == 'tab-3' ? true : false" 
+                        @click="currentActive = 'tab-3'"
+                    >
+                    <span>Tab 3</span>
+                    </button>  
+                    <!-- END Tab 3 Button -->
+                </div>
+                <!-- Tab 1 Content -->
+                <div id="tab-1" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden" aria-labelledby="tabs"
+                    :class="{ 'hidden invisible': currentActive != 'tab-1' }"
+                    :inert="currentActive != 'tab-1' ? true : false" 
+                >
+                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a tab 1 text.</p>
+                </div>
+                <!-- END Tab 1 Content -->
+                <!-- Tab 2 Content -->
+                <div id="tab-2" class="hidden invisible p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden" aria-labelledby="tabs" inert
+                    :class="{ 'hidden invisible': currentActive != 'tab-2' }"
+                    :inert="currentActive != 'tab-3' ? true : false" 
+                >
+                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a tab 2 text.</p>
+                </div>
+                <!-- END Tab 2 Content -->
+                <!-- Tab 3 Content -->
+                <div id="tab-3" class="hidden invisible p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden" aria-labelledby="tabs" inert
+                    :class="{ 'hidden invisible': currentActive != 'tab-3' }"
+                    :inert="currentActive != 'tab-3' ? true : false" 
+                >
+                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a tab 3 text.</p>
+                </div>
+                <!-- END Tab 3 Content -->
+            </div>
+            <!-- END Tabs -->              
+        </main>
+        <!-- END Content -->
+    </body>
+</html>

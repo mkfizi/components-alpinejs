@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" x-data="app">
+    <head>
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#ffffff">
+        <!-- END Metadata -->
+        <!-- SEO -->
+        <meta name="title" content="UI Component AlpineJS">
+        <meta name="description" content="Component UI sandbox in AlpineJS and TailwindCSS.">
+        <meta name="robots" content="index, follow">
+        <!-- END SEO -->  
+        <!-- Facebook Open Graph -->
+        <meta property="og:url" content="https://mkfizi.dev">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="UI Component AlpineJS">
+        <meta property="og:image" content="path/to/img/meta-og.jpg">
+        <meta property="og:description" content="Component UI sandbox in AlpineJS and TailwindCSS.">
+        <meta property="og:site_name" content="UI Component AlpineJS">
+        <!-- END Facebook Open Graph -->
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@mkfizi">
+        <meta name="twitter:creator" content="@mkfizi">
+        <meta name="twitter:url" content="https://mkfizi.dev">
+        <meta name="twitter:title" content="UI Component AlpineJS">
+        <meta name="twitter:description" content="Component UI sandbox in AlpineJS and TailwindCSS.">
+        <meta name="twitter:image" content="path/to/img/meta-card.jpg">
+        <!-- END Twitter Card -->
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="/site.webmanifest">
+        <!-- END Favicon -->
+        <!-- Style -->
+        <link rel="stylesheet" href="./src/css/index.css">
+        <link rel="preload" href="./src/css/index.css" as="style">
+        <!-- END Style -->
+        <!-- Script -->
+        <script src="./src/js/index.js" type="module" defer></script>
+        <link rel="preload" href="./src/js/index.js" as="script">
+        <!-- END Script -->
+        <!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
+        <title>UI Component AlpineJS | Dropdown</title>
+    </head>
+    <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
+        <!-- Content -->
+        <main class="mx-auto px-4 sm:px-8 py-32 w-full max-w-screen-sm">
+            <!-- Dropdown -->
+             <div class="inline-block relative"
+                x-data="{ isOpen: false }" 
+                @click.outside="isOpen = false"
+                @keydown.escape.window="isOpen = false"
+             >
+                <!-- Dropdown Button -->
+                <button id="dropdown-toggle-button" @click="isOpen = !isOpen" type="button" class="flex items-center gap-4 bg-black hover:bg-neutral-800 focus:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white dark:focus:bg-white disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown."
+                    :aria-expanded="isOpen"
+                    @click="isOpen = !isOpen"
+                >
+                    <span>Dropdown</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-white dark:stroke-black w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M6 9l6 6l6 -6" />
+                    </svg>
+                </button>
+                <!-- END Dropdown Button -->
+                <!-- Dropdown Content -->
+                <div id="dropdown" class="hidden invisible left-0 z-10 absolute bg-white dark:bg-neutral-950 mt-2 border border-neutral-200 dark:border-neutral-800 rounded w-48" aria-labelledby="dropdown" inert
+                    :class="{ 'hidden invisible': !isOpen }"
+                    :inert="!isOpen"
+                >
+                    <ul class="space-y-1 p-1 leading-0">
+                        <li>
+                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left">Dropdown item 1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left">Dropdown item 2</a>
+                        </li>
+                        <li>
+                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left">Dropdown item 3</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END Dropdown Content -->
+             </div>
+             <!-- END Dropdown -->
+        </main>
+        <!-- END Content -->
+    </body>
+</html>

@@ -16,6 +16,25 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [1.0.0] - 2025-03-21
+### Added
+- Accordion component.
+- Dark mode component.
+- Dark mode dropdown component.
+- Navbar component.
+- Sidebar component.
+
+### Changed
+- Renamed project to `UI Component AlpineJS` as part of `@mkfizi/ui` sandbox.
+- Seperate components into respective files.
+- Update Vite configuration.
+- Update TailwindCSS to v4.
+- Redefine component styles.
+- Renamed `app.js` to `index.js`.
+- `404.html` content.
+- Categorize Modal and Offcanvas as Overlay.
+
+
 ## [0.2.1] - 2023-11-07
 ### Added
 - Collapse and dropdown padding for element focus.
